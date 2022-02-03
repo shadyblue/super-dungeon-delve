@@ -51,7 +51,7 @@ position = Vector2( 8, 8 )
 z_index = 10
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -110,6 +110,7 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( 4.7368, 7.19185 )
 shape = SubResource( 3 )
+
 [connection signal="frame_changed" from="Sprite" to="." method="_on_Sprite_frame_changed"]
 [connection signal="timeout" from="Light2D/LightTimer" to="." method="_on_LightTimer_timeout"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]

@@ -23,7 +23,7 @@ const SCENE_WEAPON: = preload("res://entities/weapon.tscn")
 
 func _ready():
 	rng.randomize()
-	var zoom_factor = OS.get_screen_dpi(OS.get_current_screen()) / 480.0
+	var zoom_factor = .2
 	#print("zoom_factor: ", zoom_factor)
 	$Camera2D.zoom = Vector2(zoom_factor, zoom_factor)
 		
