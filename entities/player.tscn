@@ -22,15 +22,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "hit",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "walk",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "hit",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=4]
@@ -38,7 +38,7 @@ radius = 4.44124
 height = 3.45922
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 4.85502, 7.0294 )
+extents = Vector2( 4.85502, 6.31425 )
 
 [node name="Player" type="KinematicBody2D"]
 show_behind_parent = true
@@ -50,7 +50,9 @@ light_mask = 0
 position = Vector2( 8, 8 )
 z_index = 10
 frames = SubResource( 1 )
+
 animation = "idle"
+
 frame = 2
 playing = true
 
@@ -85,7 +87,7 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 modulate = Color( 0.298039, 0.768627, 0.0588235, 1 )
 light_mask = 0
-position = Vector2( 7.92289, 15.694 )
+position = Vector2( 8, 14 )
 z_index = 12
 shape = SubResource( 4 )
 
@@ -108,8 +110,12 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2( 4.7368, 7.19185 )
+position = Vector2( 4.7368, 6.43185 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
+
+
+[connection signal="input_event" from="." to="." method="_on_Player_input_event"]
 
 [connection signal="frame_changed" from="Sprite" to="." method="_on_Sprite_frame_changed"]
 [connection signal="timeout" from="Light2D/LightTimer" to="." method="_on_LightTimer_timeout"]

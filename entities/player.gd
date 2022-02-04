@@ -11,6 +11,7 @@ var _recoil_dir = Vector2.ZERO
 var _attack_cooldown = 0.0
 var _step = true
 var rng: = RandomNumberGenerator.new()
+var START_ANGLE
 
 export var base_speed = Vector2(100, 100)
 export var light_size = 0.19
@@ -26,8 +27,6 @@ func _ready():
 	var zoom_factor = .2
 	#print("zoom_factor: ", zoom_factor)
 	$Camera2D.zoom = Vector2(zoom_factor, zoom_factor)
-		
-#
 #
 #
 func _physics_process(delta: float):
@@ -35,7 +34,6 @@ func _physics_process(delta: float):
 		pass
 		#globals.depth = 1
 		#$"/root/Main".next_level()
-		
 	_time += delta
 	_attack_cooldown -= delta
 	_recoil_time -= delta
@@ -76,9 +74,6 @@ func _get_direction() -> Vector2:
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	)
-	
-	if new_dir.x != 0 or new_dir.y != 0:
-		_attack_dir = new_dir	
 		
 	if _recoil_time > 0:
 		$Sprite.play("hit")	
@@ -178,30 +173,34 @@ func add_gold(extragold: int):
 #
 #
 #
-func _attack():
+func _attack():	
+	var mouse = get_node("CollisionShape2D").get_angle_to(get_global_mouse_position())
+#	var _attack_angle = mouse)
+	var _attack_angle  = rad2deg(mouse)
+#	a = wrapi(int(a), 0, 8)
+#	var _attack_angle  = int(a)
 	var weapon: = SCENE_WEAPON.instance()
 	weapon.add_to_group("weapons")
 	
 	$SfxSwipe.pitch_scale = rng.randf_range(0.9, 1.8)
 	$SfxSwipe.play(0.0)
+	print("attack_angle", _attack_angle)
 	
-	if _attack_dir.x > 0:
-		weapon.rot = 90
+	weapon.position.x = 8
+	weapon.position.y = 16
+	weapon.z_index = 11
+	
+	# Just make sure we attach Down always. We arn't doing any uppercuts!
+	if _attack_angle < -90 or _attack_angle >90:
+		weapon.START_ANGLE = _attack_angle +45
+		weapon.END_ANGLE = _attack_angle -45
 		weapon.position.x = 8
 		weapon.position.y = 16
-	elif _attack_dir.x < 0:
-		weapon.rot = -90
+	else:
+		weapon.START_ANGLE = _attack_angle -45
+		weapon.END_ANGLE = _attack_angle + 45
 		weapon.position.x = 8
 		weapon.position.y = 16
-	elif _attack_dir.y > 0:
-		weapon.rot = 180
-		weapon.position.x = 8
-		weapon.position.y = 16
-		weapon.z_index = 11
-	elif _attack_dir.y < 0:
-		weapon.rot = 0
-		weapon.position.x = 8
-		weapon.position.y = 12
 
 	add_child(weapon)
 	_attack_cooldown = attack_cooldown_time
@@ -214,7 +213,6 @@ func _attack():
 #func _input(event):
 #	var xzone = get_viewport_rect().size.x / 3
 #	var yzone = get_viewport_rect().size.y / 3
-#
 #	if event is InputEventMouseButton:
 #		if event.button_index == 5:
 #			$Camera2D.zoom = Vector2($Camera2D.zoom.x * 0.9, $Camera2D.zoom.y * 0.9)
