@@ -24,7 +24,7 @@ const SCENE_WEAPON: = preload("res://entities/weapon.tscn")
 
 func _ready():
 	rng.randomize()
-	var zoom_factor = OS.get_screen_dpi(OS.get_current_screen()) / 480.0
+	var zoom_factor = .2
 	#print("zoom_factor: ", zoom_factor)
 	$Camera2D.zoom = Vector2(zoom_factor, zoom_factor)
 #
@@ -174,9 +174,9 @@ func add_gold(extragold: int):
 #
 #
 func _attack():	
-	var mouse = get_angle_to(get_global_mouse_position())
+	var mouse = get_node("CollisionShape2D").get_angle_to(get_global_mouse_position())
 #	var _attack_angle = mouse)
-	var _attack_angle  = (stepify(rad2deg(mouse), PI/4) / (PI/4))
+	var _attack_angle  = rad2deg(mouse)
 #	a = wrapi(int(a), 0, 8)
 #	var _attack_angle  = int(a)
 	var weapon: = SCENE_WEAPON.instance()
@@ -189,26 +189,19 @@ func _attack():
 	weapon.position.x = 8
 	weapon.position.y = 16
 	weapon.z_index = 11
-	if _attack_angle >= 0:
-		weapon.START_ANGLE = _attack_angle
-		weapon.END_ANGLE = _attack_angle + 90
+	
+	# Just make sure we attach Down always. We arn't doing any uppercuts!
+	if _attack_angle < -90 or _attack_angle >90:
+		weapon.START_ANGLE = _attack_angle +45
+		weapon.END_ANGLE = _attack_angle -45
 		weapon.position.x = 8
 		weapon.position.y = 16
-	elif _attack_angle > 90:
-		weapon.START_ANGLE = _attack_angle + 45
-		weapon.END_ANGLE = _attack_angle + 135
-		weapon.position.x = 8
-		weapon.position.y = 16
-	elif _attack_angle < 0:
-		weapon.START_ANGLE = _attack_angle 
-		weapon.END_ANGLE = _attack_angle + 90
-		weapon.position.x = 8
-		weapon.position.y = 16
-	elif _attack_angle <= -90:
+	else:
 		weapon.START_ANGLE = _attack_angle -45
-		weapon.END_ANGLE = _attack_angle - 135
+		weapon.END_ANGLE = _attack_angle + 45
 		weapon.position.x = 8
 		weapon.position.y = 16
+
 	add_child(weapon)
 	_attack_cooldown = attack_cooldown_time
 
