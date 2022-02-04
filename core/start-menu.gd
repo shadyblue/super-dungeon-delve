@@ -1,4 +1,5 @@
 extends Control
+#comment
 
 const OPT_START = 0
 const OPT_EXIT = 1
