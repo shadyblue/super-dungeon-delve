@@ -175,8 +175,8 @@ func add_gold(extragold: int):
 #
 func _attack():	
 	var mouse = get_angle_to(get_global_mouse_position())
-	var _attack_angle = rad2deg(mouse)
-#	var _attack_angle  = stepify(mouse, PI/4) / (PI/4)
+#	var _attack_angle = mouse)
+	var _attack_angle  = (stepify(rad2deg(mouse), PI/4) / (PI/4))
 #	a = wrapi(int(a), 0, 8)
 #	var _attack_angle  = int(a)
 	var weapon: = SCENE_WEAPON.instance()
@@ -194,16 +194,21 @@ func _attack():
 		weapon.END_ANGLE = _attack_angle + 90
 		weapon.position.x = 8
 		weapon.position.y = 16
-	elif _attack_angle <= 0:
+	elif _attack_angle > 90:
+		weapon.START_ANGLE = _attack_angle + 45
+		weapon.END_ANGLE = _attack_angle + 135
+		weapon.position.x = 8
+		weapon.position.y = 16
+	elif _attack_angle < 0:
 		weapon.START_ANGLE = _attack_angle 
 		weapon.END_ANGLE = _attack_angle + 90
 		weapon.position.x = 8
 		weapon.position.y = 16
-#	elif _attack_angle >= 180:
-#		weapon.START_ANGLE = _attack_angle
-#		weapon.END_ANGLE = _attack_angle - 90
-#		weapon.position.x = 8
-#		weapon.position.y = 16
+	elif _attack_angle <= -90:
+		weapon.START_ANGLE = _attack_angle -45
+		weapon.END_ANGLE = _attack_angle - 135
+		weapon.position.x = 8
+		weapon.position.y = 16
 	add_child(weapon)
 	_attack_cooldown = attack_cooldown_time
 
