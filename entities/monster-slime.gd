@@ -1,7 +1,7 @@
 extends Monster
 
 const SCENE_SLIME = preload("res://entities/slime.tscn")
-
+	
 func _ready():
 	$AnimatedSprite.animation = "slime"
 	$Particles2D.modulate = Color("97da3f")

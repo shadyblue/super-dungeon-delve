@@ -15,7 +15,7 @@ func _ready():
 func _physics_process(delta):
 	if _recoil_countdown <= 0:
 		# Vector to player
-		var los_ray: Vector2 = $"/root/Main/Player/CollisionShape2D".global_transform.get_origin() - $"CollisionShape2D".global_transform.get_origin()
+		var los_ray: Vector2 = globals.player.get_node("Hitbox/CollisionShape2D").global_transform.get_origin() - $"Hitbox/CollisionShape2D".global_transform.get_origin()
 		if los_ray.length() < 200:
 			$RayCast2D.cast_to = los_ray
 			# If ray collides means no LOS, so stand still
@@ -29,11 +29,11 @@ func _physics_process(delta):
 		
 		# If haven't hit the player recently, move toward them
 		if time_since_hit_player > RUN_AWAY_TIME:
-			_direction = $"/root/Main/Player/CollisionShape2D".global_transform.get_origin() - $"CollisionShape2D".global_transform.get_origin()
+			_direction = globals.player.get_node("Hitbox/CollisionShape2D").global_transform.get_origin() - $"Hitbox/CollisionShape2D".global_transform.get_origin()
 			speed = _base_speed
 		else:
 			# Else move in opposite direction fast
-			_direction =  $"CollisionShape2D".global_transform.get_origin() - $"/root/Main/Player/CollisionShape2D".global_transform.get_origin() 
+			_direction =  $"Hitbox/CollisionShape2D".global_transform.get_origin() - globals.player.get_node("Hitbox/CollisionShape2D").global_transform.get_origin() 
 			speed = _base_speed * 2
 			
 		_direction = _direction.normalized()

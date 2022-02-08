@@ -4,7 +4,7 @@ extends Node
 
 const SCENE_MONSTER = preload("res://entities/monster.tscn")
 const SCENE_EXIT = preload("res://entities/exit.tscn")
-const SCENE_PLAYER = preload("res://entities/player.tscn")
+const SCENE_PLAYER = preload("res://entities/Elf.tscn")
 const SCENE_MAP = preload("res://core/map.tscn")
 
 func _ready():
@@ -86,13 +86,13 @@ func start_level():
 				if r == 0:
 					monster = SCENE_MONSTER.instance()
 					monster.set_script(preload("res://entities/monster-skel.gd"))
+					
 				if r == 1: 
 					monster = SCENE_MONSTER.instance()
 					monster.set_script(preload("res://entities/monster-slime.gd"))
 				if r == 2:
 					monster = SCENE_MONSTER.instance()
 					monster.set_script(preload("res://entities/monster-goblin.gd"))
-				
 				# Place monster randomly in room
 				var m_cell = globals.map.get_random_floor_cell(room["left"], room["top"], room["width"], room["height"])
 				monster.position.x = m_cell.x * globals.GRID_SIZE

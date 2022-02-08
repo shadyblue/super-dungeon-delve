@@ -11,6 +11,7 @@ var _recoil_dir = Vector2.ZERO
 var _attack_cooldown = 0.0
 var _step = true
 var rng: = RandomNumberGenerator.new()
+var max_health = 100
 var START_ANGLE
 
 export var base_speed = Vector2(100, 100)
@@ -20,7 +21,7 @@ export var health = 100
 export var attack_cooldown_time = 0.5
 export var weapon_damage = 10.0
 
-const SCENE_WEAPON: = preload("res://entities/weapon.tscn")
+var SCENE_WEAPON
 
 func _ready():
 	rng.randomize()
@@ -157,7 +158,7 @@ func take_damage(collision_dir: Vector2, damage: float, factor: float):
 #
 #
 func heal(ammount: int):
-	health = min(health + ammount, 100)
+	health = min(health + ammount, max_health)
 	$"/root/Main/HUD/HealthBar".value = health	
 	$"/root/Main/HUD/HealthBar".theme
 	$"/root/Main/HUD/HealthBar/AnimationPlayer".play("blink")
@@ -174,38 +175,13 @@ func add_gold(extragold: int):
 #
 #
 func _attack():	
-	var mouse = get_node("CollisionShape2D").get_angle_to(get_global_mouse_position())
-#	var _attack_angle = mouse)
+	var mouse = get_node("Hitbox/CollisionShape2D").get_angle_to(get_global_mouse_position())
 	var _attack_angle  = rad2deg(mouse)
-#	a = wrapi(int(a), 0, 8)
-#	var _attack_angle  = int(a)
-	var weapon: = SCENE_WEAPON.instance()
+	var weapon = SCENE_WEAPON.instance()
 	weapon.add_to_group("weapons")
-	
-	$SfxSwipe.pitch_scale = rng.randf_range(0.9, 1.8)
-	$SfxSwipe.play(0.0)
-	print("attack_angle", _attack_angle)
-	
-	weapon.position.x = 8
-	weapon.position.y = 16
-	weapon.z_index = 11
-	
-	# Just make sure we attach Down always. We arn't doing any uppercuts!
-	if _attack_angle < -90 or _attack_angle >90:
-		weapon.START_ANGLE = _attack_angle +45
-		weapon.END_ANGLE = _attack_angle -45
-		weapon.position.x = 8
-		weapon.position.y = 16
-	else:
-		weapon.START_ANGLE = _attack_angle -45
-		weapon.END_ANGLE = _attack_angle + 45
-		weapon.position.x = 8
-		weapon.position.y = 16
-
+	weapon.facing(_attack_angle)
 	add_child(weapon)
 	_attack_cooldown = attack_cooldown_time
-
-
 		
 #
 # **** Attempt at mobile touch screen controls removed for now ****
