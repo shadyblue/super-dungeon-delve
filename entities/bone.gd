@@ -10,7 +10,7 @@ func _ready():
 	speed = 60.0 + rand_range(0, 50)
 	#direction = Vector2(0.0, 1.0)
 	#direction = Vector2(rand_range(-1.0, 1.0), rand_range(-1.0, 1.0)).normalized()
-	direction = ($"/root/Main/Player/CollisionShape2D".global_transform.get_origin() - position).normalized()
+	direction = (globals.player.get_node("Hitbox/CollisionShape2D").global_transform.get_origin() - position).normalized()
 	$AnimationPlayer.playback_speed = (speed / 110.0) * 2.0
 	$AnimationPlayer.play("spin")
 	

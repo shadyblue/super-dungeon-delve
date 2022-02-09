@@ -1,35 +1,34 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://entities/player.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/player/knight_m_idle_anim_f0.png" type="Texture" id=2]
-[ext_resource path="res://assets/sprites/player/knight_m_idle_anim_f1.png" type="Texture" id=3]
-[ext_resource path="res://assets/sprites/player/knight_m_idle_anim_f2.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/player/knight_m_idle_anim_f3.png" type="Texture" id=5]
-[ext_resource path="res://assets/sprites/player/knight_m_hit_anim_f0.png" type="Texture" id=6]
-[ext_resource path="res://assets/sprites/player/knight_m_run_anim_f0.png" type="Texture" id=7]
-[ext_resource path="res://assets/sprites/player/knight_m_run_anim_f1.png" type="Texture" id=8]
-[ext_resource path="res://assets/sprites/player/knight_m_run_anim_f2.png" type="Texture" id=9]
-[ext_resource path="res://assets/sprites/player/knight_m_run_anim_f3.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/player/elf/elf_m_run_anim_f1.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/player/elf/elf_m_idle_anim_f0.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/player/elf/elf_m_idle_anim_f3.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/player/elf/elf_m_hit_anim_f0.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/player/elf/elf_m_run_anim_f2.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/player/elf/elf_m_idle_anim_f2.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/player/elf/elf_m_run_anim_f3.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/player/elf/elf_m_run_anim_f0.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/player/elf/elf_m_idle_anim_f1.png" type="Texture" id=10]
 [ext_resource path="res://assets/efx/light.png" type="Texture" id=11]
 [ext_resource path="res://assets/sfx/footstep.wav" type="AudioStream" id=12]
 [ext_resource path="res://assets/sfx/grunts.wav" type="AudioStream" id=13]
-[ext_resource path="res://assets/sfx/swipe.wav" type="AudioStream" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "idle",
+"name": "hit",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "walk",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "hit",
+"name": "idle",
 "speed": 5.0
 } ]
 
@@ -82,7 +81,7 @@ autostart = true
 
 [node name="Tween" type="Tween" parent="Light2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="EnvironmentCollision" type="CollisionShape2D" parent="."]
 modulate = Color( 0.298039, 0.768627, 0.0588235, 1 )
 light_mask = 0
 position = Vector2( 8, 14 )
@@ -96,9 +95,6 @@ bus = "Reverb"
 
 [node name="SfxPain" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 13 )
-
-[node name="SfxSwipe" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 14 )
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2( 1.85062, 5.86031 )
