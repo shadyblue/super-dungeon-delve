@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://entities/weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/Daggers.gd" type="Script" id=2]
+[ext_resource path="res://assets/0x72_DungeonTilesetII_v1.4/frames/weapon_green_magic_staff.png" type="Texture" id=3]
+[ext_resource path="res://assets/sfx/heal.wav" type="AudioStream" id=4]
+
+[node name="Wand" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 0.990125, 0.689422 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+rotation = 3.55271e-15
+
+[node name="SfxSwipe" parent="." index="3"]
+stream = ExtResource( 4 )

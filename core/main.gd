@@ -4,7 +4,7 @@ extends Node
 
 const SCENE_MONSTER = preload("res://entities/monster.tscn")
 const SCENE_EXIT = preload("res://entities/exit.tscn")
-const SCENE_PLAYER = preload("res://entities/Elf.tscn")
+const SCENE_PLAYER = preload("res://entities/Wizard.tscn")
 const SCENE_MAP = preload("res://core/map.tscn")
 
 func _ready():
