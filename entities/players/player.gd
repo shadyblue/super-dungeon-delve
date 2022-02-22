@@ -20,7 +20,7 @@ export var health = 100
 export var attack_cooldown_time = 0.5
 export var weapon_damage = 10.0
 
-const SCENE_WEAPON: = preload("res://entities/weapons/weapon.tscn")
+const SCENE_WEAPON: = preload("res://entities/weapons/sword.tscn")
 
 func _ready():
 	rng.randomize()
@@ -30,8 +30,6 @@ func _ready():
 #
 #
 func _physics_process(delta: float):
-	if Input.is_action_just_pressed("test"):
-		pass
 		#globals.depth = 1
 		#$"/root/Main".next_level()
 	_time += delta

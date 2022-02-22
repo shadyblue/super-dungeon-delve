@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "",
+"base": "EditorVCSInterface",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
@@ -29,17 +29,29 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/monsters/monster.gd"
 }, {
+"base": "Player",
+"class": "PLizard",
+"language": "GDScript",
+"path": "res://entities/players/player-lizard.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://entities/players/player.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://entities/weapons/sword.gd"
 } ]
 _global_script_class_icons={
 "GitAPI": "",
 "LevelGenZone": "",
 "MSkeleton": "",
 "Monster": "",
-"Player": ""
+"PLizard": "",
+"Player": "",
+"Weapon": ""
 }
 
 [application]

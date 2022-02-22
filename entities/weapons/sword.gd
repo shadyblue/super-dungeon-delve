@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Weapon
 
 var START_ANGLE = -45
 var END_ANGLE = 45

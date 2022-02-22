@@ -6,7 +6,7 @@ extends Node
 const SCENE_EXIT = preload("res://entities/exit.tscn")
 
 const SCENE_MAP = preload("res://core/map.tscn")
-const ENTITIES = globals.ENTITIES
+
 
 
 
@@ -86,14 +86,14 @@ func start_level():
 				# But attach different scripts for the different behaviors 
 				var r: = randi() % 3
 				if r == 0:
-					monster = ENTITIES.MONSTERS.skeleton.scene.instance()
-					monster.set_script(ENTITIES.MONSTERS.skeleton.script)
+					monster = globals.ENTITIES.MONSTERS.skeleton.scene.instance()
+					monster.set_script(globals.ENTITIES.MONSTERS.skeleton.script)
 				if r == 1: 
-					monster = ENTITIES.MONSTERS.slime.scene.instance()
-					monster.set_script(ENTITIES.MONSTERS.slime.script)
+					monster = globals.ENTITIES.MONSTERS.slime.scene.instance()
+					monster.set_script(globals.ENTITIES.MONSTERS.slime.script)
 				if r == 2:
-					monster = ENTITIES.MONSTERS.goblin.scene.instance()
-					monster.set_script(ENTITIES.MONSTERS.goblin.script)
+					monster = globals.ENTITIES.MONSTERS.goblin.scene.instance()
+					monster.set_script(globals.ENTITIES.MONSTERS.goblin.script)
 				
 				# Place monster randomly in room
 				var m_cell = globals.map.get_random_floor_cell(room["left"], room["top"], room["width"], room["height"])
