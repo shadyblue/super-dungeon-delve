@@ -144,13 +144,9 @@ position = Vector2( 500, 800 )
 rotation = -1.5708
 scale = Vector2( 10, 10 )
 frames = SubResource( 2 )
-frame = 3
-playing = true
 
 [node name="leftArrow" type="AnimatedSprite" parent="."]
 position = Vector2( 95, 797 )
 rotation = 1.5708
 scale = Vector2( 10, 10 )
 frames = SubResource( 2 )
-frame = 1
-playing = true

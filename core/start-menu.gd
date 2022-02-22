@@ -21,6 +21,8 @@ func _ready():
 	animated_sprite.play("idle")
 	add_child(animated_sprite)
 	$AnimationPlayer.play("selected")
+	$rightArrow.play("default")
+	$leftArrow.play("default")
 	
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
