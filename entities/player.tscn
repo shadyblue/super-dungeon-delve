@@ -21,15 +21,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "walk",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "hit",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "walk",
+"speed": 7.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=4]
@@ -41,6 +41,7 @@ extents = Vector2( 4.85502, 6.31425 )
 
 [node name="Player" type="KinematicBody2D"]
 show_behind_parent = true
+scale = Vector2( 0.782994, 0.989645 )
 collision_layer = 2
 script = ExtResource( 1 )
 
@@ -50,6 +51,7 @@ position = Vector2( 8, 8 )
 z_index = 10
 frames = SubResource( 1 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
