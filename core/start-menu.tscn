@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://core/start-menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/splash/title.png" type="Texture" id=2]
 [ext_resource path="res://resources/font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/ui/pointer.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/player/knight_m_idle_anim_f1.png" type="Texture" id=5]
 [ext_resource path="res://assets/misc/coin.png" type="Texture" id=6]
 [ext_resource path="res://assets/misc/potion.png" type="Texture" id=7]
 [ext_resource path="res://assets/misc/chest.png" type="Texture" id=8]
@@ -116,11 +115,6 @@ scale = Vector2( 6.125, 6.125 )
 texture = ExtResource( 4 )
 offset = Vector2( 0, -3 )
 
-[node name="playerScene" type="Sprite" parent="."]
-position = Vector2( -709, 813 )
-scale = Vector2( 16.5714, 16.5714 )
-texture = ExtResource( 5 )
-
 [node name="coin" type="Sprite" parent="."]
 position = Vector2( 1721.5, 757.5 )
 scale = Vector2( 13.6875, 13.6875 )
@@ -150,7 +144,7 @@ position = Vector2( 500, 800 )
 rotation = -1.5708
 scale = Vector2( 10, 10 )
 frames = SubResource( 2 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="leftArrow" type="AnimatedSprite" parent="."]
@@ -158,5 +152,5 @@ position = Vector2( 95, 797 )
 rotation = 1.5708
 scale = Vector2( 10, 10 )
 frames = SubResource( 2 )
-frame = 3
+frame = 1
 playing = true
