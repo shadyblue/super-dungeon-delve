@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lizard_m_run_anim_f0.png-db2d56bda2e5da8fee770e0ee6277c98.stex"
+path="res://.import/arrow_1.png-11c98760fc42a09a6c69b84b6508660f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player/lizard/lizard_m_run_anim_f0.png"
-dest_files=[ "res://.import/lizard_m_run_anim_f0.png-db2d56bda2e5da8fee770e0ee6277c98.stex" ]
+source_file="res://assets/ui/arrow_1.png"
+dest_files=[ "res://.import/arrow_1.png-11c98760fc42a09a6c69b84b6508660f.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

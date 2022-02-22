@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://entities/weapon.gd" type="Script" id=1]
+[ext_resource path="res://entities/weapons/weapon.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/player/weapon_red_gem_sword.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -33,7 +33,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, 180.0 ]
+"values": [ -33.0, 33.0 ]
 }
 
 [node name="Weapon" type="KinematicBody2D"]

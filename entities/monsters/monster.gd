@@ -1,6 +1,6 @@
 extends KinematicBody2D
 class_name Monster 
-
+	
 export var speed = 0
 export var health = 100
 export var damage = 5
@@ -15,6 +15,8 @@ var time_since_hit_player = 2000.0
 var _dead = false
 const RECOIL_SPEED = 200
 const RECOIL_TIME = 0.15
+
+
 
 func _ready():
 	pass	

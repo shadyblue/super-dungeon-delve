@@ -20,7 +20,7 @@ export var health = 100
 export var attack_cooldown_time = 0.5
 export var weapon_damage = 10.0
 
-const SCENE_WEAPON: = preload("res://entities/weapon.tscn")
+const SCENE_WEAPON: = preload("res://entities/weapons/weapon.tscn")
 
 func _ready():
 	rng.randomize()

@@ -1,5 +1,7 @@
 extends Monster
 
+class_name MSkeleton
+
 var move_time: = 0.0
 const SCENE_BONE = preload("res://entities/bone.tscn")
 
