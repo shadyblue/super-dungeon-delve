@@ -31,8 +31,6 @@ func _ready():
 #
 #
 func _physics_process(delta: float):
-	if Input.is_action_just_pressed("test"):
-		pass
 		#globals.depth = 1
 		#$"/root/Main".next_level()
 	_time += delta

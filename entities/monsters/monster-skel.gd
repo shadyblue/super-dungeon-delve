@@ -1,7 +1,9 @@
 extends Monster
 
+class_name MSkeleton
+
 var move_time: = 0.0
-const SCENE_BONE = preload("res://entities/bone.tscn")
+const SCENE_BONE = preload("res://entities/weapons/bone.tscn")
 
 func _ready():
 	$AnimatedSprite.animation = "skel"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://entities/monster.gd" type="Script" id=1]
+[ext_resource path="res://entities/monsters/monster.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/monsters/orc_warrior_run_anim_f0.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/monsters/orc_warrior_run_anim_f1.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/monsters/orc_warrior_run_anim_f2.png" type="Texture" id=4]
@@ -96,7 +96,7 @@ position = Vector2( 8, 8 )
 z_index = 3
 frames = SubResource( 2 )
 animation = "goblin"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

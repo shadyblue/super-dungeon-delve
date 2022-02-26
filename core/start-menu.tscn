@@ -1,14 +1,17 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://core/start-menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/splash/title.png" type="Texture" id=2]
 [ext_resource path="res://resources/font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/ui/pointer.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/player/knight_m_idle_anim_f1.png" type="Texture" id=5]
 [ext_resource path="res://assets/misc/coin.png" type="Texture" id=6]
 [ext_resource path="res://assets/misc/potion.png" type="Texture" id=7]
 [ext_resource path="res://assets/misc/chest.png" type="Texture" id=8]
 [ext_resource path="res://assets/music/title.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/ui/arrow_3.png" type="Texture" id=10]
+[ext_resource path="res://assets/ui/arrow_4.png" type="Texture" id=11]
+[ext_resource path="res://assets/ui/arrow_2.png" type="Texture" id=12]
+[ext_resource path="res://assets/ui/arrow_1.png" type="Texture" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "selected"
@@ -37,6 +40,14 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.972549, 0.364706, 0, 1 ) ]
 }
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -104,11 +115,6 @@ scale = Vector2( 6.125, 6.125 )
 texture = ExtResource( 4 )
 offset = Vector2( 0, -3 )
 
-[node name="knight" type="Sprite" parent="."]
-position = Vector2( 284.572, 718 )
-scale = Vector2( 16.5714, 16.5714 )
-texture = ExtResource( 5 )
-
 [node name="coin" type="Sprite" parent="."]
 position = Vector2( 1721.5, 757.5 )
 scale = Vector2( 13.6875, 13.6875 )
@@ -128,8 +134,19 @@ texture = ExtResource( 8 )
 stream = ExtResource( 9 )
 volume_db = -10.4
 pitch_scale = 0.88
-autoplay = true
 bus = "Reverb"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/selected = SubResource( 1 )
+
+[node name="rightArrow" type="AnimatedSprite" parent="."]
+position = Vector2( 500, 800 )
+rotation = -1.5708
+scale = Vector2( 10, 10 )
+frames = SubResource( 2 )
+
+[node name="leftArrow" type="AnimatedSprite" parent="."]
+position = Vector2( 95, 797 )
+rotation = 1.5708
+scale = Vector2( 10, 10 )
+frames = SubResource( 2 )
