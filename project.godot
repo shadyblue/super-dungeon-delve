@@ -89,6 +89,13 @@ singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
 Version=false
 "image loader"=false
 
+[importer_defaults]
+
+texture={
+"detect_3d": false,
+"flags/filter": false
+}
+
 [input]
 
 ui_select={
