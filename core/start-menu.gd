@@ -85,7 +85,6 @@ func playerSelect():
 		_oldPlayerSelected = _playerSelected
 		var playerName = globals.selectablePlayers[_playerSelected]
 		globals.player = globals.ENTITIES.PLAYERS[playerName].scene.instance()
-		globals.player.set_script(globals.ENTITIES.PLAYERS[playerName].script)
 		updatePlayerFrames()	
 		
 	

@@ -74,7 +74,9 @@ func _on_SfxDeath_finished():
 #
 func _on_Hitbox_body_entered(body):
 	# When hit by weapon
-	if body.name == "Weapon":
+	print("made it here")
+	if body.is_in_group("weapons"):
+		print("made it here")
 		# and *not* recoiling - take damage
 		if _recoil_countdown < 0:
 			$Particles2D.one_shot = true

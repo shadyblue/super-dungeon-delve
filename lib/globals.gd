@@ -26,12 +26,21 @@ const ENTITIES = {
 		},
 		"PLAYERS": {
 			"knight": {
-				"scene": preload("res://entities/players/player-knight.tscn"),
-				"script": preload("res://entities/players/player.gd")
+				"scene": preload("res://entities/players/player-knight.tscn")
 			},
 			"lizard": {
-				"scene": preload("res://entities/players/player-lizard.tscn"),
-				"script": preload("res://entities/players/player-lizard.gd")
+				"scene": preload("res://entities/players/player-lizard.tscn")
+			},
+			"elf": {
+				"scene": preload("res://entities/players/player-elf.tscn")
+			}
+		},
+		"WEAPONS": {
+			"Sword": {
+				"scene": preload("res://entities/weapons/sword.tscn")
+			},
+			"Daggers": {
+				"scene": preload("res://entities/weapons/Daggers.tscn")
 			}
 		}
 	}
