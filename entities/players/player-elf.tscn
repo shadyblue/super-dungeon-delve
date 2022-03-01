@@ -35,3 +35,4 @@ script = ExtResource( 11 )
 
 [node name="Sprite" parent="." index="0"]
 frames = SubResource( 1 )
+frame = 2
