@@ -3,7 +3,6 @@ extends Control
 
 const OPT_START = 0
 const OPT_EXIT = 1
-const PLAYERS = globals.ENTITIES.PLAYERS
 
 var _selected = 0
 var _old_selected = 1

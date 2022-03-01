@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://entities/weapons/weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/weapons/Wand.gd" type="Script" id=2]
+[ext_resource path="res://assets/0x72_DungeonTilesetII_v1.4/frames/weapon_green_magic_staff.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 2.99997
+height = 22.0001
+
+[node name="Wand" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 0.563178, 0.756765 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Muzzle" type="Position2D" parent="." index="4"]
+position = Vector2( -6.48499e-05, -18 )
+rotation = -1.5708

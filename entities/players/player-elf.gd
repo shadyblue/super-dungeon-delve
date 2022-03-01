@@ -1,4 +1,5 @@
-extends "res://entities/players/player.gd"
+extends Player
+class_name PElf
 
 
 # Declare member variables here. Examples:

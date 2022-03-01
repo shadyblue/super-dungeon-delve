@@ -33,6 +33,9 @@ const ENTITIES = {
 			},
 			"elf": {
 				"scene": preload("res://entities/players/player-elf.tscn")
+			},
+			"wizard": {
+				"scene": preload("res://entities/players/player-wizard.tscn")
 			}
 		},
 		"WEAPONS": {
@@ -41,6 +44,9 @@ const ENTITIES = {
 			},
 			"Daggers": {
 				"scene": preload("res://entities/weapons/Daggers.tscn")
+			},
+			"Wand": {
+				"scene": preload("res://entities/weapons/Wand.tscn")
 			}
 		}
 	}

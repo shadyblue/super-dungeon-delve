@@ -30,9 +30,24 @@ _global_script_classes=[ {
 "path": "res://entities/monsters/monster.gd"
 }, {
 "base": "Player",
+"class": "PElf",
+"language": "GDScript",
+"path": "res://entities/players/player-elf.gd"
+}, {
+"base": "Player",
+"class": "PKnight",
+"language": "GDScript",
+"path": "res://entities/players/player-knight.gd"
+}, {
+"base": "Player",
 "class": "PLizard",
 "language": "GDScript",
 "path": "res://entities/players/player-lizard.gd"
+}, {
+"base": "Player",
+"class": "PWizard",
+"language": "GDScript",
+"path": "res://entities/players/player-wizard.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -49,7 +64,10 @@ _global_script_class_icons={
 "LevelGenZone": "",
 "MSkeleton": "",
 "Monster": "",
+"PElf": "",
+"PKnight": "",
 "PLizard": "",
+"PWizard": "",
 "Player": "",
 "Weapon": ""
 }
