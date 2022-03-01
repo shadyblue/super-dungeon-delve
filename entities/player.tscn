@@ -41,6 +41,7 @@ extents = Vector2( 4.85502, 6.31425 )
 
 [node name="Player" type="KinematicBody2D"]
 show_behind_parent = true
+scale = Vector2( 0.782994, 0.989645 )
 collision_layer = 2
 script = ExtResource( 1 )
 
@@ -50,7 +51,11 @@ position = Vector2( 8, 8 )
 z_index = 10
 frames = SubResource( 1 )
 animation = "idle"
+<<<<<<< HEAD
 frame = 2
+=======
+frame = 3
+>>>>>>> 5a436c151cf1225d6fe433931c6f5bdb59e75812
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -18,3 +18,7 @@ rotation = 3.55271e-15
 
 [node name="SfxSwipe" parent="." index="3"]
 stream = ExtResource( 4 )
+
+[node name="Muzzle" type="Position2D" parent="." index="4"]
+position = Vector2( -3.00279, -20.0271 )
+scale = Vector2( 0.990125, 0.689422 )

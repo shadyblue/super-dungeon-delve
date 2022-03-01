@@ -176,6 +176,7 @@ func add_gold(extragold: int):
 #
 func _attack():	
 	var mouse = get_node("Hitbox/CollisionShape2D").get_angle_to(get_global_mouse_position())
+	print(mouse)
 	var _attack_angle  = rad2deg(mouse)
 	var weapon = SCENE_WEAPON.instance()
 	weapon.add_to_group("weapons")
