@@ -16,11 +16,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "hit",
@@ -30,6 +25,11 @@ animations = [ {
 "loop": true,
 "name": "walk",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=4]
@@ -54,7 +54,6 @@ playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 8, 8 )
-current = true
 zoom = Vector2( 0.2, 0.2 )
 limit_left = 0
 limit_top = 0

@@ -35,4 +35,7 @@ script = ExtResource( 11 )
 
 [node name="Sprite" parent="." index="0"]
 frames = SubResource( 1 )
-frame = 2
+frame = 1
+
+[node name="Camera2D" parent="." index="1"]
+current = true

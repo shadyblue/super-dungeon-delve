@@ -1,10 +1,9 @@
 extends KinematicBody2D
 var speed = 300
-
+var _attack_angle
+	
+	
 func _physics_process(delta):
-	position += transform.x * speed * delta
-
-func _on_Bullet_body_entered(body):
-	if body.is_in_group("monsters"):
-		body.queue_free()
-	queue_free()
+	var collision = move_and_collide(Vector2(1,0).rotated(deg2rad(_attack_angle)) * speed * delta)
+	if collision:
+		queue_free()

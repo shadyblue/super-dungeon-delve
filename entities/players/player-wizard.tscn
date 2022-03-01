@@ -14,11 +14,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "hit",
@@ -28,6 +23,11 @@ animations = [ {
 "loop": true,
 "name": "walk",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
 } ]
 
 [node name="Wizard" instance=ExtResource( 1 )]
@@ -35,4 +35,6 @@ script = ExtResource( 11 )
 
 [node name="Sprite" parent="." index="0"]
 frames = SubResource( 1 )
-frame = 3
+
+[node name="Camera2D" parent="." index="1"]
+current = true

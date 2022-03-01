@@ -10,6 +10,7 @@ func facing(_attack_angle):
 	add_child(b)
 	b.add_to_group("weapons")
 	b.transform = $Muzzle.transform
+	b._attack_angle = _attack_angle
 	position.x = 8
 	position.y = 16
 	z_index = 11
