@@ -109,4 +109,8 @@ anims/attack = SubResource( 2 )
 [node name="SfxSwipe" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 
+[node name="Muzzle" type="Position2D" parent="."]
+position = Vector2( -3.00005, -15 )
+rotation = -1.5708
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

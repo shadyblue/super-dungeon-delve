@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://entities/weapon.tscn" type="PackedScene" id=1]
-[ext_resource path="res://entities/Daggers.gd" type="Script" id=2]
+[ext_resource path="res://entities/Wand.gd" type="Script" id=2]
 [ext_resource path="res://assets/0x72_DungeonTilesetII_v1.4/frames/weapon_green_magic_staff.png" type="Texture" id=3]
 [ext_resource path="res://assets/sfx/heal.wav" type="AudioStream" id=4]
 

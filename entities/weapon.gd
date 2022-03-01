@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+const SCENE_BULLET = preload("res://entities/Bullet.tscn")
 var START_ANGLE = -45
 var END_ANGLE = 45
 var rng: = RandomNumberGenerator.new()
@@ -15,7 +15,9 @@ func _ready():
 	$AnimationPlayer.get_animation("attack").track_set_key_value(0, 1, END_ANGLE+90)
 	
 	$AnimationPlayer.play("attack", -1, 5.0)
+	var b = SCENE_BULLET.instance()
+	add_child(b)
+	b.transform = $Muzzle.transform
 
-
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	queue_free()

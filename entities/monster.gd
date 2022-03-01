@@ -72,7 +72,7 @@ func _on_SfxDeath_finished():
 #
 func _on_Hitbox_body_entered(body):
 	# When hit by weapon
-	if body.name == "Weapon":
+	if body.name == "Weapon" or body.name == "Bullet":
 		# and *not* recoiling - take damage
 		if _recoil_countdown < 0:
 			$Particles2D.one_shot = true
