@@ -2,16 +2,18 @@ extends Node
 
 # Main game script, handles initialisation and changing levels
 
-const SCENE_MONSTER = preload("res://entities/monster.tscn")
+
 const SCENE_EXIT = preload("res://entities/exit.tscn")
-const SCENE_PLAYER = preload("res://entities/player.tscn")
+
 const SCENE_MAP = preload("res://core/map.tscn")
+
+
+
 
 func _ready():
 	randomize()
 
 	# Start game, add a player and reset globals
-	globals.player = SCENE_PLAYER.instance()
 	globals.depth = 1
 	globals.gold = 0
 	globals.kills = 0
@@ -25,6 +27,7 @@ func _ready():
 # Start a level, at current depth, level will be randomly generated
 #
 func start_level():
+	
 	# Nuke old map if any
 	if globals.depth > 1: 
 		if get_node_or_null("Map") != null: remove_child($Map)
@@ -79,19 +82,18 @@ func start_level():
 			# Monster spawn rate factored on depth
 			if (randf() * 100) <= 0.5 + (globals.depth * 0.7):
 				var monster: KinematicBody2D
-				
 				# Randomly pick a monster, note we instance the same scene for all monsters
 				# But attach different scripts for the different behaviors 
 				var r: = randi() % 3
 				if r == 0:
-					monster = SCENE_MONSTER.instance()
-					monster.set_script(preload("res://entities/monster-skel.gd"))
+					monster = globals.ENTITIES.MONSTERS.skeleton.scene.instance()
+					monster.set_script(globals.ENTITIES.MONSTERS.skeleton.script)
 				if r == 1: 
-					monster = SCENE_MONSTER.instance()
-					monster.set_script(preload("res://entities/monster-slime.gd"))
+					monster = globals.ENTITIES.MONSTERS.slime.scene.instance()
+					monster.set_script(globals.ENTITIES.MONSTERS.slime.script)
 				if r == 2:
-					monster = SCENE_MONSTER.instance()
-					monster.set_script(preload("res://entities/monster-goblin.gd"))
+					monster = globals.ENTITIES.MONSTERS.goblin.scene.instance()
+					monster.set_script(globals.ENTITIES.MONSTERS.goblin.script)
 				
 				# Place monster randomly in room
 				var m_cell = globals.map.get_random_floor_cell(room["left"], room["top"], room["width"], room["height"])

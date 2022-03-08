@@ -20,4 +20,5 @@ texture = ExtResource( 2 )
 position = Vector2( 8.14858, 10.1058 )
 z_index = 1
 shape = SubResource( 1 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
